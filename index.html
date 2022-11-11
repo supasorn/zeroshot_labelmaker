@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+  <script src="html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Work Sans', sans-serif;
+    }
+    .color {
+      width: 100%;
+      height: 20px;
+    }
+
+    #main {
+      width: 100px;
+      padding: 5px;
+    }
+
+    .text {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="main">
+  </diV>
+  Png image is here
+  <div id="outputpng">
+  </diV>
+
+  <script>
+    var data = [["#ff0000", "red"], ["#00FF00", "green"], ["#0000ff", "blue"], ["#FFFF00", "longword isokay"]];
+    var st = "";
+    for (let x of data) {
+      st += `<div class='color' style='background-color: ${x[0]}'></div>`;
+      st += `<div class='text'>${x[1]}</div>`;
+    }
+    document.getElementById("main").innerHTML = st;
+
+    html2canvas(document.querySelector("#main")).then(canvas => {
+      document.getElementById("outputpng").appendChild(canvas)
+    });
+  </script>
+</body>
+
+</html>
